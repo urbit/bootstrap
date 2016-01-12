@@ -94,7 +94,7 @@ $body-color: $gray-dark !default;
 // Style anchor elements.
 
 $link-color:            #000 !default;
-$link-decoration:       none !default;
+$link-decoration:       underline !default;
 $link-hover-color:      #000 !default;
 $link-hover-decoration: underline !default;
 
@@ -653,7 +653,7 @@ $close-text-shadow:           0 1px 0 #fff !default;
 // Code
 
 $code-color:                  #2f2f2f !default;
-$code-bg:                     #ededed !default;
+$code-bg:                     #f7f7f7 !default;
 
 $kbd-color:                   #fff !default;
 $kbd-bg:                      #333 !default;

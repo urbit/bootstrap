@@ -1,0 +1,123 @@
+@import "custom";
+
+@function opposite-position($pos) {
+  @if $pos == left { @return right }
+  @else if $pos == right { @return left }
+  @else if $pos == top { @return bottom }
+  @else if $pos == bottom { @return top }
+}
+
+@mixin arrow($dir,$size,$color) {
+  width: 1px;
+  height: 1px;
+  border: $size*.8 solid transparent;
+  border-#{opposite-position($dir)}: $size solid $color;
+  border-#{$dir}: 0 solid transparent;
+}
+
+@mixin circle($size,$color) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: $color;
+}
+
+a { cursor: pointer; }
+
+ul { padding-right: 0; }
+
+h1,
+h2,
+h3 {
+  padding-top: 2rem;
+}
+
+h1:first-of-type {
+  padding-top: 0;
+}
+
+pre {
+  background-color: $code-bg;
+  margin-left: -.3rem;
+  padding-left: .3rem;
+}
+
+.container {
+  padding-top: 3rem;
+  padding-bottom: 9rem;
+}
+
+@include media-breakpoint-down(sm) {
+  .container {
+    padding-top: 0;
+  }
+}
+
+.ctrl {
+  position: fixed;
+
+  ul.nav {
+    margin-top: 2rem;
+    overflow: hidden;
+  }
+
+  ul.nav:hover {
+    overflow:visible;
+  }
+
+  a.nav-link:hover { text-decoration:underline; }
+  a.nav-link { letter-spacing: 1px; }
+  a.nav-link.selected { font-weight: 500; }
+}
+
+@include media-breakpoint-up(md) {
+  .ctrl .navbar-toggler { display: none; }
+}
+
+@include media-breakpoint-down(sm) {
+  .ctrl {
+    position: relative;
+  }
+
+  ul.nav { 
+    max-height: 0;
+    overflow:hidden;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  ul.nav { line-height: 1rem; }
+  a.nav-link { font-size: .8rem; }
+}
+
+.icon {
+  margin-left: -3rem;
+  > div {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  .home { @include circle(36px,#0500F0); }
+  .up { @include arrow(top,18px,#000); }
+  .prev { @include arrow(left,18px,#000); margin-right: .6rem }
+  .next { @include arrow(right,18px,#000); }
+}
+
+@include media-breakpoint-down(md) {
+  .icon {
+    margin-left: -2rem;
+    > div {
+      display: inline-block;
+      margin-right: .6rem;
+    }
+    .home { @include circle(18px,#0500F0); }
+    .up { @include arrow(top,9px,#000); }
+    .prev { @include arrow(left,9px,#000); margin-right: .6rem }
+    .next { @include arrow(right,9px,#000); }
+  }  
+}
+
+@include media-breakpoint-down(sm) {
+  .icon {
+    margin-left: 0;
+  }
+}
