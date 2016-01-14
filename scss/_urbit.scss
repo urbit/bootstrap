@@ -22,9 +22,17 @@
   background-color: $color;
 }
 
+@mixin transition($prop,$t,$e) {
+  -webkit-transition: $prop $t $e;
+  -moz-transition: $prop $t $e;
+  transition: $prop $t $e;
+}
+
 a { cursor: pointer; }
 
 ul { padding-right: 0; }
+
+button:focus { outline: none; }
 
 h1,
 h2,
@@ -77,11 +85,22 @@ pre {
 @include media-breakpoint-down(sm) {
   .ctrl {
     position: relative;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    max-height: 3rem;
+    overflow: hidden;
+    @include transition(max-height,.6s,ease-in-out)
   }
+  .ctrl.open {
+    max-height: 12rem;
 
-  ul.nav { 
-    max-height: 0;
-    overflow:hidden;
+    ul.nav {
+      max-height: 9rem;
+      overflow-y: scroll;
+    }
+  }
+  ul.nav {
+    margin-top: 1rem;
   }
 }
 
@@ -90,13 +109,24 @@ pre {
   a.nav-link { font-size: .8rem; }
 }
 
+.mine {
+  @include circle(36px, #ccc)
+  border: 6px solid #757575;
+  margin: -2.5rem 0 .5rem -3rem;
+
+}
+
 .icon {
   margin-left: -3rem;
   > div {
     display: inline-block;
     margin-right: 1rem;
   }
-  .home { @include circle(36px,#0500F0); }
+  .home { 
+    margin-top: 6px;
+    margin-left: 6px;
+    @include circle(24px,#0500F0); 
+  }
   .up { @include arrow(top,18px,#000); }
   .prev { @include arrow(left,18px,#000); margin-right: .6rem }
   .next { @include arrow(right,18px,#000); }
