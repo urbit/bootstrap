@@ -1,3 +1,4 @@
+@import "mixins/grid";
 @import "custom";
 
 @function opposite-position($pos) {
@@ -125,6 +126,7 @@ pre {
   .home { 
     margin-top: 6px;
     margin-left: 6px;
+    margin-right: 24px;
     @include circle(24px,#0500F0); 
   }
   .up { @include arrow(top,18px,#000); }
@@ -139,7 +141,7 @@ pre {
       display: inline-block;
       margin-right: .6rem;
     }
-    .home { @include circle(18px,#0500F0); }
+    .home { @include circle(18px,#0500F0); margin-right: 9px; }
     .up { @include arrow(top,9px,#000); }
     .prev { @include arrow(left,9px,#000); margin-right: .6rem }
     .next { @include arrow(right,9px,#000); }
@@ -151,3 +153,86 @@ pre {
     margin-left: 0;
   }
 }
+
+// talk
+
+// menu
+
+$purple: #A100FE;
+
+.app {
+  vertical-align: top;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  margin-top: 9px;
+}
+
+.context {
+  margin-top: 3rem;
+
+  > div { display:inline-block; }
+  
+  .name { 
+    font-weight: 500; 
+    font-size: 1.2rem; 
+  }
+  .arrow { 
+    vertical-align: middle;
+    margin-top: -6px;
+    margin-left: 1rem;
+    @include arrow(right,18px,#000); 
+  }
+}
+
+// submenu
+
+.submenu-1 {
+  @include make-col-offset(2);
+}
+
+// grams
+
+div.meta {
+  display: inline-block;
+  margin-left: -2rem;
+}
+
+ul.grams {
+  list-style-type: none;
+}
+
+label.public {
+  background-color: $purple;
+  margin-right: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-align: center;
+}
+
+label.public:before {
+  content: '%';
+  color: #fff;
+  font-family: 'scp';
+  font-size: .8rem;
+  font-weight: 500;
+  line-height: 1rem;
+  vertical-align: middle;
+}
+
+div.meta > label,
+div.meta > h2,
+div.meta > div {
+  display: inline-block;
+}
+
+h2.author {
+  font-family: 'scp';
+  font-size: .8rem;
+  font-weight: 400;
+  margin-top: 0
+}
+
+.gram.same div.meta {
+  display: none;
+}
+
