@@ -106,11 +106,11 @@ pre {
 // nav
 
 .nav.container {
-  z-index: 100;
   position: fixed;
   left: 50%;
   width: 100%;
   padding-top: 0;
+  z-index: 100;
   @each $break,$max-width in $container-max-widths {
     @include media-breakpoint-up($break) {
       margin-left: -$max-width/2;
@@ -119,7 +119,7 @@ pre {
 }
 
 .ctrl,
-.menu {
+.menu .contents {
   padding-top: 3rem;
 }
 
@@ -216,9 +216,18 @@ pre {
 // submenu
 
 .menu {
-  background-color: $gray-lighter;
-  padding-bottom: 6rem;
-  border-left: 2px solid #ccc;
+  padding-left: 0;
+  padding-right: 0;
+  overflow:hidden;
+
+  .contents {
+    padding-left: $grid-gutter-width/2;
+    padding-right: $grid-gutter-width/2;
+    padding-bottom: 6rem;
+    position: relative;
+    left: -100%;
+    @include transition(left,.3s,ease-in-out)
+  }
 
   .close {
     margin-top: -2rem;
@@ -256,6 +265,20 @@ pre {
   }
 }
 
+.menu.depth-1 .contents {
+  background-color: $gray-lightest;
+  border-left: 2px solid $gray-light;
+}
+
+.menu.depth-2 .contents {
+  background-color: $gray-lighter;
+  border-left: 2px solid $gray-light;
+}
+
+.menu.open .contents {
+  left: 0;
+}
+
 // talk
 
 // menu
@@ -283,6 +306,11 @@ $purple: #A100FE;
     margin-top: -6px;
     margin-left: 1rem;
     @include arrow(right,18px,#000); 
+    @include transition(border-width,.3s,ease-in-out)
+  }
+  .arrow.open {
+    border-top-width:0;
+    border-bottom-width:0;
   }
 }
 
