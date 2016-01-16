@@ -29,6 +29,8 @@
   transition: $prop $t $e;
 }
 
+// global overrides
+
 a { cursor: pointer; }
 
 ul { padding-right: 0; }
@@ -62,9 +64,66 @@ pre {
   }
 }
 
-.ctrl {
-  position: fixed;
+.close {
+  font-weight: 300;
+  font-size: 1rem;
+  text-shadow: none;
+  opacity: 1;
+}
 
+// utilities
+
+.planet,
+.room { 
+  font-family: 'scp'; 
+}
+
+.body { padding-left: 0; }
+
+.action { 
+  margin-top: 1rem;
+  font-weight: 500; 
+  letter-spacing: 1px; 
+}
+
+.action > label {
+  margin-right: $grid-gutter-width/2;
+  line-height: 1rem;
+}
+
+.action.create > label { 
+  @include circle(16px,transparent)
+  border: 3px solid #000;
+  vertical-align: middle;
+}
+
+.action.add > label:before { 
+  content: "+";
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+// nav
+
+.nav.container {
+  z-index: 100;
+  position: fixed;
+  left: 50%;
+  width: 100%;
+  padding-top: 0;
+  @each $break,$max-width in $container-max-widths {
+    @include media-breakpoint-up($break) {
+      margin-left: -$max-width/2;
+    }
+  }
+}
+
+.ctrl,
+.menu {
+  padding-top: 3rem;
+}
+
+.ctrl {
   ul.nav {
     margin-top: 2rem;
     overflow: hidden;
@@ -111,7 +170,7 @@ pre {
 }
 
 .mine {
-  @include circle(36px, #ccc)
+  @include circle(36px, transparent)
   border: 6px solid #757575;
   margin: -2.5rem 0 .5rem -3rem;
 
@@ -154,6 +213,49 @@ pre {
   }
 }
 
+// submenu
+
+.menu {
+  background-color: $gray-lighter;
+  padding-bottom: 6rem;
+  border-left: 2px solid #ccc;
+
+  .close {
+    margin-top: -2rem;
+  }
+
+  h2 { 
+    font-size: 1rem; 
+    padding-top: 3rem;
+  }
+  h2:first-of-type { padding-top: 0; }
+  
+  label.sum { 
+    font-family: 'scp'; 
+    margin-left: $grid-gutter-width/2;
+    font-size: 1.2rem;
+  }
+
+  .name,
+  .planet {
+    display: inline-block;
+  }
+
+  .name,
+  .planet,
+  .room {
+    font-size: .8rem;
+  }
+
+  .name { 
+    min-width: 33.333%; 
+    font-size: .9rem;
+  }
+  .planet { 
+    min-width: 66.667%; 
+  }
+}
+
 // talk
 
 // menu
@@ -184,21 +286,15 @@ $purple: #A100FE;
   }
 }
 
-// submenu
-
-.submenu-1 {
-  @include make-col-offset(2);
-}
-
 // grams
 
 div.meta {
   display: inline-block;
-  margin-left: -2rem;
 }
 
 ul.grams {
   list-style-type: none;
+  padding: 0;
 }
 
 label.public {
