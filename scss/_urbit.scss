@@ -11,7 +11,7 @@
 @mixin arrow($dir,$size,$color) {
   width: 1px;
   height: 1px;
-  border: $size*.8 solid transparent;
+  border: $size*.6667 solid transparent;
   border-#{opposite-position($dir)}: $size solid $color;
   border-#{$dir}: 0 solid transparent;
 }
@@ -71,6 +71,17 @@ pre {
   opacity: 1;
 }
 
+@include media-breakpoint-down(sm) {
+  h1 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
 // utilities
 
 .planet,
@@ -79,6 +90,13 @@ pre {
 }
 
 .body { padding-left: 0; }
+
+@include media-breakpoint-down(sm) {
+  .body { 
+    padding-left: $grid-gutter-width/2; 
+    margin-top: 4rem;
+  }
+}
 
 .action { 
   margin-top: 1rem;
@@ -118,12 +136,19 @@ pre {
   }
 }
 
-.ctrl,
-.menu .contents {
-  padding-top: 3rem;
+@include media-breakpoint-down(sm) {
+  .nav.container {
+    left: 0;
+    top: 0;
+  }
 }
 
+.ctrl,
+.menu .contents { padding-top: 3rem; }
+
 .ctrl {
+  padding-left: $grid-gutter-width;
+
   ul.nav {
     margin-top: 2rem;
     overflow: hidden;
@@ -135,59 +160,97 @@ pre {
 
   a.nav-link:hover { text-decoration:underline; }
   a.nav-link { letter-spacing: 1px; }
-  a.nav-link.selected { font-weight: 500; }
+  .selected a.nav-link { 
+    font-weight: 500; 
+    letter-spacing: 0;
+  }
 }
 
-@include media-breakpoint-up(md) {
-  .ctrl .navbar-toggler { display: none; }
+@include media-breakpoint-down(md) {
+  ul.nav { line-height: 1.3rem; }
+  a.nav-link { font-size: .8rem; }
 }
 
 @include media-breakpoint-down(sm) {
   .ctrl {
     position: relative;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
     max-height: 3rem;
+    padding-top: 1rem;
+    background-color: #fff;
     overflow: hidden;
+    border-bottom: 1px solid #000;
     @include transition(max-height,.6s,ease-in-out)
   }
+
+  ul.nav {
+    line-height: 2rem;
+    margin-bottom: 2rem;  
+  }
+
+  a.nav-link { font-size: 1rem; }
+
   .ctrl.open {
-    max-height: 12rem;
+    max-height: 25rem;
 
     ul.nav {
       max-height: 9rem;
       overflow-y: scroll;
     }
   }
+
   ul.nav {
     margin-top: 1rem;
   }
 }
 
-@include media-breakpoint-down(md) {
-  ul.nav { line-height: 1rem; }
-  a.nav-link { font-size: .8rem; }
+.navbar-toggler {
+  transition: opacity .2s, transform .3s;
+  -webkit-transition: opacity .2s, transform .3s;
 }
 
-.mine {
-  @include circle(36px, transparent)
-  border: 6px solid #757575;
-  margin: -2.5rem 0 .5rem -3rem;
+.navbar-toggler.open {
+  transform: rotate(.25turn);
+  opacity: .2;
+}
 
+@include media-breakpoint-up(md) {
+  .ctrl .navbar-toggler { display: none; }
+  .ctrl .navbar-toggler.show { 
+    display: inherit; 
+    padding: 0;
+    margin-left: 2px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .navbar-toggler {
+    font-size: 1rem;
+    margin-left: 0;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .navbar-toggler {
+    padding: 0;
+  }
 }
 
 .icon {
-  margin-left: -3rem;
-  > div {
+  div {
     display: inline-block;
-    margin-right: 1rem;
+    margin-right: .6rem;
   }
+
   .home { 
-    margin-top: 6px;
-    margin-left: 6px;
-    margin-right: 24px;
-    @include circle(24px,#0500F0); 
+    margin: 6px 9px 12px 0;
+    @include circle(24px,transparent); 
+    border: 6px solid $gray-light;
   }
+
+  .dpad {
+    display: block;
+  }
+
   .up { @include arrow(top,18px,#000); }
   .prev { @include arrow(left,18px,#000); margin-right: .6rem }
   .next { @include arrow(right,18px,#000); }
@@ -195,21 +258,27 @@ pre {
 
 @include media-breakpoint-down(md) {
   .icon {
-    margin-left: -2rem;
     > div {
       display: inline-block;
       margin-right: .6rem;
+      vertical-align: middle;
     }
-    .home { @include circle(18px,#0500F0); margin-right: 9px; }
-    .up { @include arrow(top,9px,#000); }
-    .prev { @include arrow(left,9px,#000); margin-right: .6rem }
-    .next { @include arrow(right,9px,#000); }
-  }  
+
+    .dpad {
+      display: inline;
+    }
+
+    .home { @include circle(18px,transparent); border-width: 4px;}
+    .up { @include arrow(top,12px,#000); margin-left: 1px; }
+    .prev { @include arrow(left,12px,#000); margin-right: .6rem }
+    .next { @include arrow(right,12px,#000); }
+  }
 }
 
 @include media-breakpoint-down(sm) {
-  .icon {
+  .icon { 
     margin-left: 0;
+    .home { margin-top: 0; margin-bottom: 0; }
   }
 }
 
@@ -279,6 +348,28 @@ pre {
   left: 0;
 }
 
+@include media-breakpoint-down(sm) {
+  .menu {
+    height: 100%;
+    padding-left: $grid-gutter-width/2;
+
+    .contents {
+      left: inherit;
+      top: -100%;
+      padding-top: $grid-gutter-width/2;
+      @include transition(top,.3s,ease-in-out)
+    }
+
+    .close {
+      margin-top: 0;
+    }
+  }
+
+  .menu.open .contents {
+    top: 0;
+  }
+}
+
 // talk
 
 // menu
@@ -288,31 +379,48 @@ $purple: #A100FE;
 .app {
   vertical-align: top;
   font-size: 1.3rem;
+  font-weight: 500;
   line-height: 1.3rem;
   margin-top: 9px;
 }
 
-.context {
-  margin-top: 3rem;
-
-  > div { display:inline-block; }
-  
-  .name { 
-    font-weight: 500; 
-    font-size: 1.2rem; 
-  }
-  .arrow { 
-    vertical-align: middle;
-    margin-top: -6px;
-    margin-left: 1rem;
-    @include arrow(right,18px,#000); 
-    @include transition(border-width,.3s,ease-in-out)
-  }
-  .arrow.open {
-    border-top-width:0;
-    border-bottom-width:0;
+@include media-breakpoint-down(md) {
+  .app { 
+    font-size: 1rem;
+    margin-top: 6px;
   }
 }
+
+@include media-breakpoint-down(sm) {
+  .app {
+    margin-top: 0;
+    line-height: 1rem;
+  }
+}
+
+.context {
+  margin-top: 1rem;
+  
+  .name { 
+    font-weight: 300; 
+    font-size: 1.2rem; 
+    font-family: 'scp';
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .context .name {
+    font-size: 1rem;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .context {
+    line-height: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
 
 // grams
 
@@ -360,3 +468,32 @@ h2.author {
   display: none;
 }
 
+// input
+
+.input {
+  border-bottom: 3px solid #000;
+  display: inline-block;
+  line-height: 2rem;
+  font-size: 1rem;
+  padding: 0 .2rem;
+  min-width: 1rem;
+  min-height: 1rem;
+}
+
+.audience {
+  margin-bottom: 2rem;
+}
+
+.audience .input {
+  border-color: $gray-dark;
+  font-family: 'scp';
+}
+
+.message .input {
+  border-color: $gray-light;
+  font-family: 'bau';
+}
+
+.message {
+  margin-bottom: 6rem;
+}
