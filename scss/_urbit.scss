@@ -468,6 +468,12 @@ h2.author {
   display: none;
 }
 
+@include media-breakpoint-down(sm) {
+  label.public {
+    margin-right: 9px;
+  }
+}
+
 // input
 
 .input {
