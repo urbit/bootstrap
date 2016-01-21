@@ -60,12 +60,8 @@ pre {
 
 .body { padding-left: 0; }
 
-@include media-breakpoint-down(sm) {
-  .body { 
-    padding-left: $grid-gutter-width/2; 
-    margin-top: 4rem;
-  }
-}
+@include media-breakpoint-down(xs) { .body { padding-left: $grid-gutter-width/2; } }
+@include media-breakpoint-down(sm) { .body { margin-top: 4rem; } }
 
 .action { 
   margin-top: 1rem;
