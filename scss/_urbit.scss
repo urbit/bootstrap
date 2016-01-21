@@ -1,39 +1,13 @@
 @import "mixins/grid";
 @import "custom";
 
-@function opposite-position($pos) {
-  @if $pos == left { @return right }
-  @else if $pos == right { @return left }
-  @else if $pos == top { @return bottom }
-  @else if $pos == bottom { @return top }
-}
-
-@mixin arrow($dir,$size,$color) {
-  width: 1px;
-  height: 1px;
-  border: $size*.6667 solid transparent;
-  border-#{opposite-position($dir)}: $size solid $color;
-  border-#{$dir}: 0 solid transparent;
-}
-
-@mixin circle($size,$color) {
-  width: $size;
-  height: $size;
-  border-radius: 50%;
-  background-color: $color;
-}
-
-@mixin transition($prop,$t,$e) {
-  -webkit-transition: $prop $t $e;
-  -moz-transition: $prop $t $e;
-  transition: $prop $t $e;
-}
+@import "mixins/urbit";
 
 // global overrides
 
 a { cursor: pointer; }
 
-ul { padding-right: 0; }
+ul { padding: 0 1rem; }
 
 button:focus { outline: none; }
 
