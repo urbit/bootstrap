@@ -5,6 +5,13 @@
   @else if $pos == bottom { @return top }
 }
 
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}
+
 @mixin arrow($dir,$size,$color) {
   width: 1px;
   height: 1px;

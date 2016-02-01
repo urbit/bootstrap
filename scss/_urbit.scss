@@ -27,6 +27,18 @@ pre {
   padding-left: .3rem;
 }
 
+input,
+textarea {
+  outline: none;
+  border: 0;
+  border-bottom: .2rem solid $gray-light;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #000;
+}
+
 .container {
   padding-top: 3rem;
   padding-bottom: 9rem;
@@ -58,7 +70,7 @@ pre {
 
 // utilities
 
-.body { padding-left: 0; }
+.body { padding-left: $grid-gutter-width; }
 
 @include media-breakpoint-down(xs) { .body { padding-left: $grid-gutter-width/2; } }
 @include media-breakpoint-down(sm) { .body { margin-top: 4rem; } }
@@ -84,6 +96,33 @@ pre {
   content: "+";
   font-size: 1.3rem;
   font-weight: 500;
+}
+
+.mono {
+  font-family: 'scp';
+}
+
+// login
+
+h1.sign {
+  line-height: 2;
+  color: $purple;
+}
+
+h2.advice {
+  font-size: 2rem;
+  line-height:3rem;
+  color: $gray-light;
+}
+
+.sig,
+#ship,
+#pass {
+  font-size: 2rem;
+}
+
+#pass {
+  width: 100%;
 }
 
 // menu
