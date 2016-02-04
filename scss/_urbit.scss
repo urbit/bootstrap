@@ -70,11 +70,6 @@ textarea:focus {
 
 // utilities
 
-.body { padding-left: $grid-gutter-width; }
-
-@include media-breakpoint-down(xs) { .body { padding-left: $grid-gutter-width/2; } }
-@include media-breakpoint-down(sm) { .body { margin-top: 4rem; } }
-
 .action { 
   margin-top: 1rem;
   font-weight: 500; 
