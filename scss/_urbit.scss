@@ -115,12 +115,12 @@ h2.advice {
   color: $gray-light;
 }
 
+p.ship { white-space: nowrap; }
+input#ship { width: 66.7%; }
+
 .sig,
 #ship,
-#pass {
-  font-size: 2rem;
-}
+#pass { font-size: 2rem; }
 
-#pass {
-  width: 100%;
-}
+.sig { margin-right: .3rem; }
+#pass { width: 100%; }
