@@ -17,14 +17,36 @@ h3 {
   padding-top: 2rem;
 }
 
+h4,
+h5,
+h6 {
+  padding-top: 1rem;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+  font-weight: 600;
+}
+
 h1:first-of-type {
   padding-top: 0;
 }
 
+code,
 pre {
   background-color: $code-bg;
   margin-left: -.3rem;
   padding-left: .3rem;
+}
+
+pre code { 
+  background-color: transparent;
+  margin-left: 0; 
+  padding-left: 0;
 }
 
 input,
