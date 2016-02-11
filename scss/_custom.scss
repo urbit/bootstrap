@@ -26,24 +26,23 @@
 //
 // Grayscale and brand colors for use across Bootstrap.
 
+$purple:                    #A100FE;
+$red:                       #FF0808;
+$blue:                      #0500F0;
+$yellow:                    #FFF900;
+$green:                     #61E000;
+
 $gray-dark:                 #373a3c !default;
 $gray:                      #55595c !default;
 $gray-light:                #B1B7BD !default;
 $gray-lighter:              #eceeef !default;
 $gray-lightest:             #f7f7f9 !default;
 
-$brand-primary:             #ff0000 !default;
-$brand-success:             #00ff00 !default;
-$brand-info:                #5bc0de !default;
-$brand-warning:             #f0ad4e !default;
-$brand-danger:              #d9534f !default;
-
-$purple:                    #A100FE;
-
-$red:                       #FF0808;
-$blue:                      #0500F0;
-$yellow:                    #FFF900;
-$green:                     #61E000;
+$brand-primary:             $blue !default;
+$brand-success:             $green !default;
+$brand-info:                $blue !default;
+$brand-warning:             $purple !default;
+$brand-danger:              $red !default;
 
 // Options
 //

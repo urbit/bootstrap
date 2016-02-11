@@ -44,6 +44,17 @@ h1:first-of-type {
   padding-top: 0;
 }
 
+@include media-breakpoint-down(sm) {
+  h1 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
 code,
 pre {
   background-color: $code-bg;
@@ -69,6 +80,8 @@ textarea:focus {
   border-color: #000;
 }
 
+// overrides
+
 .container {
   padding-top: 3rem;
   padding-bottom: 9rem;
@@ -87,16 +100,15 @@ textarea:focus {
   opacity: 1;
 }
 
-@include media-breakpoint-down(sm) {
-  h1 {
-    font-size: 2rem;
-    line-height: 3rem;
-  }
-
-  h2 {
-    font-size: 1.6rem;
-  }
+.btn {
+  background-color: #fff;
+  border-width: 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .06rem;
 }
+
+.btn-primary { color: $brand-primary; }
 
 // color
 
@@ -117,7 +129,6 @@ textarea:focus {
 
 .block {
   padding: .6rem;
-  margin-left: -.6rem;
   font-weight: 500;
   display: inline-block;
 }
