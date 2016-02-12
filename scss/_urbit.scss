@@ -93,6 +93,8 @@ textarea:focus {
   }
 }
 
+.lead { margin-bottom: 3rem; }
+
 .close {
   font-weight: 300;
   font-size: 1rem;
@@ -137,6 +139,8 @@ textarea:focus {
 
 
 // utilities
+
+.i-b { display: inline-block; }
 
 .action { 
   margin-top: 1rem;
@@ -197,4 +201,17 @@ button#act {
   text-decoration: underline;
   border: 0;
   font-size: 1.6rem;
+}
+
+// logo
+
+.lead .logo {
+    border-radius: 5rem;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    line-height: 5rem;
+    font-size: 4.4rem;
+    margin-right: 3rem;
+    display: inline-block;
 }
