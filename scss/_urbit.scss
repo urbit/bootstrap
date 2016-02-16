@@ -87,13 +87,12 @@ textarea:focus {
   padding-bottom: 9rem;
 }
 
-@include media-breakpoint-down(sm) {
-  .container {
-    padding-top: 0;
-  }
-}
-
 .lead { margin-bottom: 3rem; }
+
+@include media-breakpoint-down(sm) {
+  .container { padding-top: 0; }
+  .lead { margin-bottom: 1rem; }
+}
 
 .close {
   font-weight: 300;
@@ -214,4 +213,22 @@ button#act {
     font-size: 4.4rem;
     margin-right: 3rem;
     display: inline-block;
+}
+
+@include media-breakpoint-down(md) {
+  .lead .logo {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+    font-size: 3.3rem;
+    line-height: 3.3rem;
+    border-radius: 3rem;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .lead .logo {
+    display:block;
+    margin-bottom: 1rem;
+  }
 }
