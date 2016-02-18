@@ -10,9 +10,10 @@ a { cursor: pointer; }
 ul { padding: 0 1rem; }
 
 hr {
-  height: .3rem;
+  height: 1px;
   background-color: #000;
-  width: 4/$grid-columns*100%;
+  border-top: none;
+  width: 8/$grid-columns*100%;
   margin-left: 0;
 }
 
@@ -42,6 +43,8 @@ h6 code {
 .even,
 h1:first-of-type {
   padding-top: 0;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
 }
 
 @include media-breakpoint-down(sm) {
@@ -58,7 +61,6 @@ h1:first-of-type {
 code,
 pre {
   background-color: $code-bg;
-  margin-left: -.3rem;
   padding-left: .3rem;
 }
 
