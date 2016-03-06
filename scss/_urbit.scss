@@ -23,12 +23,14 @@ h1,
 h2,
 h3 {
   padding-top: 2rem;
+  line-height: 4rem;
 }
 
 h4,
 h5,
 h6 {
   padding-top: 1rem;
+  line-height: 2rem;
 }
 
 h1 code,
@@ -46,6 +48,17 @@ h1:first-of-type {
   padding-bottom: 3rem;
   margin-bottom: 0;
 }
+
+h1.first,
+h2.first,
+h3.first {
+  padding-top: 0;
+  padding-bottom: 2rem;
+}
+
+.gray { color: $gray; }
+.gray-light { color: $gray-light; }
+.gray-lighter { color: $gray-lighter; }
 
 @include media-breakpoint-down(sm) {
   h1 {
@@ -85,8 +98,8 @@ textarea:focus {
 // overrides
 
 .container {
-  padding-top: 3rem;
-  padding-bottom: 9rem;
+  padding-top: 2rem;
+  padding-bottom: 6rem;
 }
 
 .lead { margin-bottom: 3rem; }
