@@ -6028,6 +6028,14 @@ h6 {
   padding-top: 1rem;
 }
 
+h3, h4 {
+  line-height: 3rem;
+}
+
+h5, h6 {
+  line-height: 2rem;
+}
+
 h1 code,
 h2 code,
 h3 code,
@@ -6078,7 +6086,7 @@ textarea:focus {
   border-color: #000;
 }
 
-.container {
+body {
   padding-top: 3rem;
   padding-bottom: 9rem;
 }
