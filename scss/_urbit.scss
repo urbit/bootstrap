@@ -9,6 +9,8 @@ a { cursor: pointer; }
 
 ul { padding: 0 1rem; }
 
+b,strong { font-weight: 500; }
+
 hr {
   height: 1px;
   background-color: #000;
@@ -23,14 +25,12 @@ h1,
 h2,
 h3 {
   padding-top: 2rem;
-  line-height: 4rem;
 }
 
 h4,
 h5,
 h6 {
   padding-top: 1rem;
-  line-height: 2rem;
 }
 
 h3,h4 { line-height: 3rem; }
@@ -42,7 +42,7 @@ h3 code,
 h4 code,
 h5 code,
 h6 code {
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .even,
@@ -57,6 +57,12 @@ h2.first,
 h3.first {
   padding-top: 0;
   padding-bottom: 2rem;
+}
+
+h1.child,
+h2.child,
+h3.child {
+  padding-bottom: 0;
 }
 
 .gray { color: $gray; }
@@ -77,7 +83,10 @@ h3.first {
 code,
 pre {
   background-color: $code-bg;
-  padding-left: .3rem;
+}
+
+p code {
+  padding: .2rem .1rem;
 }
 
 pre code { 
